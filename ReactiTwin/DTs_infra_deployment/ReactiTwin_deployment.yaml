@@ -1,0 +1,423 @@
+#Created on February 29 15:56:16 2026
+#@author: kambana
+
+# NODE-RED
+
+
+# Node-RED Pod 1 (the only one exposed to the internet)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-1
+  template:
+    metadata:
+      labels:
+        app: dt-1
+    spec:
+      hostname: dthphwproto  # must match the OPC-UA TLS certificate altname
+      containers:
+        - name: dt-1
+          image: andringitra/dt-debianlinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880   # Node-RED HTTPS port
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840   # OPC-UA port
+              hostPort: 4880 #Map to host port for external access
+
+# Node-RED Pods 2 to 10 (internal only)
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-2
+  template:
+    metadata:
+      labels:
+        app: dt-2
+    spec:
+      hostname: dthphwproto
+      containers:
+        - name: dt-2
+          image: andringitra/dt-almalinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840
+              hostPort: 4840 #Map to host port for external access
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-3
+  template:
+    metadata:
+      labels:
+        app: dt-3
+    spec:
+      hostname: dthphwproto
+      containers:
+        - name: dt-3
+          image: andringitra/dt-alpinelinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840
+              hostPort: 4840 #Map to host port for external access
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-4
+  template:
+    metadata:
+      labels:
+        app: dt-4
+    spec:
+      hostname: dthphwproto
+      containers:
+        - name: dt-4
+          image: andringitra/dt-ubuntulinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840
+              hostPort: 4840 #Map to host port for external access
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-5
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-5
+  template:
+    metadata:
+      labels:
+        app: dt-5
+    spec:
+      hostname: dthphwproto
+      containers:
+        - name: dt-5
+          image: andringitra/dt-manjarolinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840
+              hostPort: 4840 #Map to host port for external access
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-6
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-6
+  template:
+    metadata:
+      labels:
+        app: dt-6
+    spec:
+      hostname: dthphwproto
+      containers:
+        - name: dt-6
+          image: andringitra/dt-tumbleweedlinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840
+              hostPort: 4840 #Map to host port for external access
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-7
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-7
+  template:
+    metadata:
+      labels:
+        app: dt-7
+    spec:
+      hostname: dthphwproto
+      containers:
+        - name: dt-7
+          image: andringitra/dt-opensuselinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840
+              hostPort: 4840 #Map to host port for external access
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-8
+  template:
+    metadata:
+      labels:
+        app: dt-8
+    spec:
+      hostname: dthphwproto
+      containers:
+        - name: dt-8
+          image: andringitra/dt-fedoralinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840
+              hostPort: 4840 #Map to host port for external access
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-9
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-9
+  template:
+    metadata:
+      labels:
+        app: dt-9
+    spec:
+      hostname: dthphwproto
+      containers:
+        - name: dt-9
+          image: andringitra/dt-rockylinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840
+              hostPort: 4840 #Map to host port for external access
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dt-10
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dt-10
+  template:
+    metadata:
+      labels:
+        app: dt-10
+    spec:
+      hostname: dthphwproto
+      containers:
+        - name: dt-10
+          image: andringitra/dt-archlinux:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: nodered
+              containerPort: 1880
+              hostPort: 1880 #Map to host port for external access
+            - name: opcua
+              containerPort: 4840
+              hostPort: 4840 #Map to host port for external access
+
+---
+# LoadBalancer Service to expose dt-1 publicly
+apiVersion: v1
+kind: Service
+metadata:
+  name: dt-core
+spec:
+  type: ClusterIP      # internal to the cluster, Change to Loadbalancer for commercial API K8s
+  selector:
+    app: dt-1
+  ports:
+    - name: nodered
+      port: 1880        # internal cluster port
+      targetPort: 1880  # container port
+    - name: opcua
+      port: 4840        # internal cluster port
+      targetPort: 4840  # container port
+---
+
+# PHPMYADMIN + MARIADB
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+        - name: phpmyadmin
+          image: phpmyadmin/phpmyadmin:latest
+          env:
+            - name: PMA_HOST
+              value: "db"
+            - name: PMA_PORT
+              value: "3306"
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin
+spec:
+  type: ClusterIP    # local access ONLY: sudo microk8s kubectl port-forward svc/phpmyadmin 8080:80
+  selector:
+    app: phpmyadmin
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+        - name: mariadb
+          image: andringitra/dt-mariadbencrypted:2.0
+          env:
+            - name: MYSQL_USER
+              value: "prototype"
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: prototype-password
+            - name: MYSQL_DATABASE
+              value: "DTHPHW_BACKUP"
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: root-password
+          volumeMounts:
+            - name: mariadb-storage
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mariadb-storage
+          persistentVolumeClaim:
+            claimName: mariadb-pvc
+
+---
+# Service for MariaDB database
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+spec:
+  selector:
+    app: mariadb
+  ports:
+    - port: 3306
+      targetPort: 3306
+
+---
+# Persistent Volume Claim for MariaDB storage
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mariadb-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi  # Increased storage for failover and replication support
+
+---
+# Secrets for MariaDB root and user passwords
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mariadb-secret
+type: Opaque
+data:
+  root-password: WWFubmljaw==          # Root password
+  prototype-password: WWFubmljaw==     # Password for the 'prototype'' user
