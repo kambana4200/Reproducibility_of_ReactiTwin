@@ -245,10 +245,11 @@ These queries provide the monitoring data required to verify the container state
 ### 10.3. Grafana Visualisation
 
 Grafana is used to provide a graphical representation of the measurements collected by Prometheus. The resulting visualisations correspond to:
-<img width="1582" height="520" alt="Figure_2" src="https://github.com/user-attachments/assets/c3f2851a-e963-4548-9555-102b7ac7726c" />
-<img width="1582" height="520" alt="Figure_1" src="https://github.com/user-attachments/assets/0431b4d0-4ba3-4d6b-bd29-000e8f79d3da" />
-<img width="1589" height="544" alt="Figure_3" src="https://github.com/user-attachments/assets/d488f867-bd56-44f2-98dc-4a00649f66ac" />
-<img width="1588" height="543" alt="Figure_4" src="https://github.com/user-attachments/assets/27410c16-bb3d-496a-acbb-6af20ab77128" />
+<img width="1582" height="520" alt="figure_4" src="https://github.com/user-attachments/assets/99637f31-6068-4e6b-8689-40f6e76483e5" />
+<img width="1588" height="543" alt="figure_3" src="https://github.com/user-attachments/assets/686ac4a2-2531-49cb-81b2-062b4e2718f4" />
+<img width="1589" height="544" alt="figure_2" src="https://github.com/user-attachments/assets/4b80c1b4-966b-4ffe-9e91-081c5728f384" />
+<img width="1582" height="520" alt="figure_1" src="https://github.com/user-attachments/assets/7bcb1a40-d212-4207-9523-262480dc1482" />
+
 
 These visualisations provide the experimental observations used to document the dynamic behaviour of the ReactiTwin infrastructure during the considered experimental configuration.
 
