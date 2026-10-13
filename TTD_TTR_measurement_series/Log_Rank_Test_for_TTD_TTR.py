@@ -8,6 +8,10 @@ from lifelines import KaplanMeierFitter
 from lifelines.statistics import logrank_test
 from matplotlib.ticker import MultipleLocator, FuncFormatter
 
+# GLOBAL VARIABLE
+CENSORED_VALUE = 700
+OBSERVATION_UNCENSORED = 0
+TOTAL_OF_OBSERVATION = 0
 
 # PREPROCESSING
 
@@ -168,6 +172,19 @@ ttd_off_rawed = np.array([
 
 ttd_off_timedistrib, ttd_off_event = build_survival_data(ttd_off_rawed)
 
+# IC 95% of WILSON
+OBSERVATION_UNCENSORED = np.count_nonzero(ttd_on_rawed != 400)
+TOTAL_OF_OBSERVATION = len(ttd_on_rawed)
+low, high = proportion_confint(
+    count= OBSERVATION_UNCENSORED,
+    nobs= TOTAL_OF_OBSERVATION,
+    alpha=0.05,
+    method="wilson"
+)
+
+print(f"Proportion : {OBSERVATION_UNCENSORED/TOTAL_OF_OBSERVATION:.2%}")
+print(f"IC 95 % de Wilson : [{low:.2%}, {high:.2%}]")
+
 # PLOTS KM + IC 95%
 
 plot_km(
@@ -252,12 +269,9 @@ def fmt_3dec(x, pos):
         return "∞"
     return f"{x:.3f}"
 
-
-INF_VALUE = 700
-
 def replace_infinite(arr):
     arr = arr.astype(float)
-    arr[arr == INF_VALUE] = np.inf
+    arr[arr == CENSORED_VALUE] = np.inf
     return arr
 
 ttr_on = replace_infinite(ttr_on_rawed)
