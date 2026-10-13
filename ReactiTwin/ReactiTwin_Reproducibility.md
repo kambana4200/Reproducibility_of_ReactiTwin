@@ -209,6 +209,11 @@ The resulting observations can be used to construct **Kaplan–Meier survival cu
 
 The TTD and TTR measurements should therefore be retained for subsequent statistical processing and reporting of the experimental results.
 
+To compute the CI 95 of WILSON, Kaplan–Meier survival curves generation and log-rank tests, install this library :
+```bash 
+pip install statsmodels
+ ``` then execute the python script *Log_Rank_Test_for_TTD_TTR.py* in the TTD_TTR_measurement_series in this repository.
+
 ## 10. Monitoring Container State Transitions and Dynamic DT Container Rotation
 
 This experiment uses **Prometheus** and **Grafana**, deployed on the server hosting **MicroK8s**, to monitor and document the state transitions of the container hosting the Digital Twin (DT) and the dynamic rotation of DT containers within the **Moving Target Defence (MTD)** approach implemented by ReactiTwin.
