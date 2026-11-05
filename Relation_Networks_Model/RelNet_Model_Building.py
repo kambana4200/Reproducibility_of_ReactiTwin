@@ -132,7 +132,7 @@ def sample_class(X, y, label, n):
 
     return Xc[idx]
 
-def make_episode(X, y, K=64, Q=128):
+def make_episode(X, y, K=32, Q=128):
     # Support set
     supp_pos = sample_class(X, y, 1, K)
     supp_neg = sample_class(X, y, 0, K)
