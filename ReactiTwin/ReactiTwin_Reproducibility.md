@@ -212,7 +212,8 @@ The TTD and TTR measurements should therefore be retained for subsequent statist
 To compute the CI 95 of WILSON, Kaplan–Meier survival curves generation and log-rank tests, install this library :
 ```bash 
 pip install statsmodels
- ``` then execute the python script *Log_Rank_Test_for_TTD_TTR.py* in the TTD_TTR_measurement_series in this repository.
+```
+Then execute the python script *Log_Rank_Test_for_TTD_TTR.py* in the TTD_TTR_measurement_series in this repository.
 
 ## 10. Monitoring Container State Transitions and Dynamic DT Container Rotation
 
