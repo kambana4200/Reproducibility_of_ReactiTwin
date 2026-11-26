@@ -11,7 +11,7 @@ The following software components are required:
 * Zeek for network traffic monitoring and connection-level event generation;
 * MicroK8s for container orchestration;
 * RabbitMQ for message brokering between the network monitoring and detection components;
-* Python 3.10 for executing the machine-learning and ReactiTwin components.
+* Python 3.12 for executing the machine-learning and ReactiTwin components.
 
 ## 2. Prerequisite Files
 
@@ -54,10 +54,10 @@ RabbitMQ provides the message-broker infrastructure used to transmit the network
 
 ### 3.4 Python Environment
 
-Install **Python 3.10** and create a dedicated Python virtual environment:
+Install **Python 3.12** and create a dedicated Python virtual environment:
 
 ```bash
-python3.10 -m venv myvenv
+python3.12 -m venv myvenv
 source myvenv/bin/activate
 ```
 
