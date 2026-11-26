@@ -64,7 +64,7 @@ source myvenv/bin/activate
 Install the Python dependencies required to execute the few-shot learning model:
 
 ```bash
-pip install numpy==1.26.4 pandas==2.2.2 scikit-learn==1.4.2 tensorflow==2.15.0 matplotlib==3.7.2 seaborn==0.13.2
+pip install numpy==2.1.3 pandas==2.2.2 scikit-learn==1.6.1 tensorflow==2.19.0 matplotlib==3.7.2 seaborn==0.13.2
 ```
 
 ## 4. Deployment of the Containerised Digital Twin Infrastructures
